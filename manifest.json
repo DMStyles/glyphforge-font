@@ -1,0 +1,17 @@
+{
+  "name": "GlyphForge Font",
+  "short_name": "GlyphForge",
+  "description": "Convert Sinhala & Tamil Unicode text to Legacy Fonts (FM Abhaya & Bamini) for Photoshop, Illustrator & Word",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "icon.jpg",
+      "sizes": "1024x1024",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

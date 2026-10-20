@@ -88,6 +88,21 @@ body::before {
   margin-bottom: 12px;
 }
 
+.brand-logo-img {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35), 0 2px 6px rgba(0, 0, 0, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.brand-logo-img:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 12px 28px rgba(139, 92, 246, 0.45);
+}
+
 .logo-badge {
   width: 44px;
   height: 44px;
