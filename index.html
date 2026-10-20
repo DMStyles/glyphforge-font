@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlyphForge Font | Sinhala & Tamil Legacy Font Converter</title>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div>
+        <div class="brand-section">
+          <div class="brand-logo-icons">
+            <div class="logo-badge">GF</div>
+          </div>
+          <div class="brand-title">GlyphForge Font</div>
+          <div class="brand-subtitle">Legacy Font Converter</div>
+        </div>
+
+        <ul class="nav-menu">
+          <li>
+            <a class="nav-item active" id="nav-single" onclick="setViewMode('single')">
+              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+              Standard Tabs
+            </a>
+          </li>
+          <li>
+            <a class="nav-item" id="nav-dual" onclick="setViewMode('dual')">
+              <svg viewBox="0 0 24 24"><path d="M4 4h7v16H4V4zm9 0h7v16h-7V4z"/></svg>
+              Dual Split View
+            </a>
+          </li>
+          <li>
+            <a class="nav-item" id="nav-singlish-item" onclick="toggleSinglishMode()">
+              <svg viewBox="0 0 24 24"><path d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z"/></svg>
+              <span id="nav-singlish-text">Singlish: On</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-item" onclick="openSinglishGuideModal()">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+              Singlish Key Guide
+            </a>
+          </li>
+          <li>
+            <a class="nav-item" onclick="setLanguage('sinhala')">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+              Sinhala (FM Fonts)
+            </a>
+          </li>
+          <li>
+            <a class="nav-item" onclick="setLanguage('tamil')">
+              <svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+              Tamil (Bamini Font)
+            </a>
+          </li>
+          <li>
+            <a class="nav-item" onclick="downloadActiveFontFile()">
+              <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+              Download Active Font
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div>GlyphForge Font Engine</div>
+        <div class="badge-status">Offline Ready</div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="main-container">
+      <!-- Header -->
+      <header class="main-header">
+        <div class="header-left">
+          <div class="mode-badge-pill">
+            <svg style="width: 15px; height: 15px; fill: currentColor;" viewBox="0 0 24 24"><path d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z"/></svg>
+            <span id="current-script-indicator">Sinhala Mode</span>
+          </div>
+          <div class="header-title-box">
+            <h1>GlyphForge Font</h1>
+            <p>Convert Sinhala & Tamil Unicode text to Legacy Fonts (FM Abhaya & Bamini) for Photoshop, Illustrator & Word</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <!-- Singlish Toggle (Sinhala mode) -->
+          <div class="toggle-switch-wrapper" id="singlish-toggle-wrapper" onclick="toggleSinglishMode()" title="Type English phonetically (e.g. 'mama lankavata adharei') and press Space to convert to Sinhala!">
+            <input type="checkbox" id="singlish-toggle" checked style="cursor: pointer;">
+            <label for="singlish-toggle" style="cursor: pointer;">⚡ Singlish Phonetic: <strong id="singlish-toggle-label">ON</strong></label>
+          </div>
+
+          <!-- Script Switcher -->
+          <div class="script-switcher-bar">
+            <button class="script-pill active" id="pill-sinhala" onclick="setLanguage('sinhala')">
+              සිංහල (FM Fonts)
+            </button>
+            <button class="script-pill" id="pill-tamil" onclick="setLanguage('tamil')">
+              தமிழ் (Bamini Font)
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Tabs Bar -->
+      <div class="tabs-bar" id="single-tabs-bar">
+        <div class="tab-buttons">
+          <button class="tab-btn active" id="tab-btn-unicode" onclick="switchSingleTab('unicode')">
+            <svg style="width: 15px; height: 15px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <span id="tab-title-unicode">UNICODE FONT</span>
+          </button>
+          <button class="tab-btn" id="tab-btn-legacy" onclick="switchSingleTab('legacy')">
+            <svg style="width: 15px; height: 15px; fill: currentColor;" viewBox="0 0 24 24"><path d="M9.93 13.5h4.14L12 7.98zM20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-4.05 16.5l-1.14-3H9.17l-1.12 3H5.96l5.11-13h1.86l5.11 13h-2.09z"/></svg>
+            <span id="tab-title-legacy">LEGACY FONT (FM / Bamini)</span>
+          </button>
+        </div>
+
+        <div class="tab-right-controls">
+          <!-- Unicode Font Dropdown -->
+          <div id="unicode-font-controls">
+            <select class="select-font-dropdown" id="unicode-font-select" onchange="onUnicodeFontChange(this.value)">
+              <option value="font-unicode-noto">Noto Sans Sinhala / System</option>
+              <option value="font-unicode-abhaya">Abhaya Libre</option>
+              <option value="system-ui">System Default</option>
+            </select>
+          </div>
+
+          <!-- Legacy Font Dropdown -->
+          <div id="legacy-font-controls" style="display: none;">
+            <select class="select-font-dropdown" id="legacy-font-select" onchange="onLegacyFontChange(this.value)">
+              <!-- Options populated dynamically -->
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editor Workspace -->
+      <div class="editor-workspace">
+        <!-- 1. Single View (Tabbed) -->
+        <div class="single-view-box" id="single-view-container">
+          <div class="textarea-container">
+            <!-- Unicode Textarea -->
+            <textarea
+              id="textarea-unicode"
+              class="main-textarea font-unicode-noto"
+              placeholder="Paste or type Unicode text here..."
+              oninput="onUnicodeInput()"
+              onkeydown="onUnicodeKeyDown(event)"
+              onkeyup="onUnicodeKeyUp(event)"
+              onpaste="handleDirectPaste(event, this)"
+            ></textarea>
+
+            <!-- Legacy Textarea -->
+            <textarea
+              id="textarea-legacy"
+              class="main-textarea font-fm-abhaya"
+              style="display: none;"
+              placeholder="Converted Legacy text will appear here..."
+              oninput="onLegacyInput()"
+            ></textarea>
+          </div>
+
+          <!-- Live Singlish Preview Badge -->
+          <div class="live-singlish-badge" id="live-singlish-badge"></div>
+
+          <!-- Metadata & View Mode Toggle for Legacy -->
+          <div class="editor-meta-bar">
+            <div class="meta-stats">
+              <span id="stat-chars">Characters: 0</span>
+              <span id="stat-words">Words: 0</span>
+            </div>
+            <div class="meta-tags" id="legacy-view-toggle-bar" style="display: none;">
+              <span style="font-size: 11px; font-weight: 600; color: #64748b;">Display:</span>
+              <button class="view-mode-pill active" id="btn-view-visual" onclick="setLegacyDisplayMode('visual')">Visual Font View</button>
+              <button class="view-mode-pill" id="btn-view-ascii" onclick="setLegacyDisplayMode('ascii')">Raw ASCII Code (Photoshop/Word)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Dual Split View -->
+        <div class="dual-split-container" id="dual-view-container">
+          <!-- Left: Unicode Box -->
+          <div class="dual-panel">
+            <div class="dual-panel-header">
+              <span id="dual-header-unicode">UNICODE FONT</span>
+              <button class="btn btn-secondary" style="padding: 4px 10px; font-size: 11px;" onclick="copyUnicodeText()">Copy Unicode</button>
+            </div>
+            <textarea
+              id="dual-textarea-unicode"
+              class="font-unicode-noto"
+              placeholder="Paste or type Unicode text here..."
+              oninput="onDualUnicodeInput()"
+              onkeydown="onDualUnicodeKeyDown(event)"
+              onkeyup="onDualUnicodeKeyUp(event)"
+              onpaste="handleDirectPaste(event, this)"
+            ></textarea>
+            <div class="live-singlish-badge" id="dual-live-singlish-badge" style="margin: 0 12px 10px 12px;"></div>
+          </div>
+
+          <!-- Right: Legacy Box -->
+          <div class="dual-panel">
+            <div class="dual-panel-header">
+              <span id="dual-header-legacy">LEGACY FONT</span>
+              <div style="display: flex; gap: 6px;">
+                <button class="view-mode-pill active" id="dual-btn-view-visual" onclick="setDualLegacyDisplayMode('visual')">Font View</button>
+                <button class="view-mode-pill" id="dual-btn-view-ascii" onclick="setDualLegacyDisplayMode('ascii')">ASCII Code</button>
+                <button class="btn btn-primary" style="padding: 4px 10px; font-size: 11px;" onclick="copyLegacyText()">Copy Legacy</button>
+              </div>
+            </div>
+            <textarea
+              id="dual-textarea-legacy"
+              class="font-fm-abhaya"
+              placeholder="Converted legacy text appears here..."
+              oninput="onDualLegacyInput()"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Toolbar -->
+      <div class="action-toolbar">
+        <div class="action-buttons-left">
+          <button class="btn btn-primary" id="btn-convert" onclick="handleConvertAction()">
+            <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+            <span id="convert-btn-text">Convert to Legacy Font</span>
+          </button>
+
+          <!-- Dedicated Convert Singlish -> Sinhala Button -->
+          <button class="btn btn-singlish-convert" id="btn-convert-singlish" onclick="convertActiveTextFromSinglish()" title="Convert English phonetic text (Singlish) into clean Sinhala Unicode">
+            <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+            Singlish ➔ Sinhala
+          </button>
+
+          <!-- Singlish Guide Modal Trigger -->
+          <button class="btn btn-secondary" id="btn-singlish-guide" onclick="openSinglishGuideModal()" title="View Singlish phonetic typing guide and shortcuts">
+            <svg style="width: 15px; height: 15px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+            Singlish Guide
+          </button>
+
+          <button class="btn btn-outline" id="btn-copy" onclick="handleCopyAction()">
+            <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Text
+          </button>
+          <button class="btn btn-secondary" onclick="handlePasteAction()">
+            <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24"><path d="M19 2h-4.18C14.4.84 13.3 0 12 0c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 18H5V4h2v3h10V4h2v16z"/></svg>
+            Paste
+          </button>
+          <button class="btn btn-secondary" onclick="handleClearAction()">
+            <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            Clear
+          </button>
+        </div>
+
+        <div class="action-buttons-right">
+          <button class="btn btn-secondary" onclick="downloadTextAsFile()">
+            <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            Save .txt
+          </button>
+          <button class="btn btn-secondary" onclick="downloadActiveFontFile()" id="btn-download-font" title="Download font file (.ttf) to install on Windows">
+            <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+            Download Font (.ttf)
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Examples Bar -->
+      <div class="examples-bar">
+        <div class="examples-bar-title">
+          <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Quick Test Examples (Click to test):
+        </div>
+        <div class="examples-pills" id="examples-pills-container">
+          <!-- Populated dynamically based on language -->
+        </div>
+      </div>
+
+      <!-- Instructions Section -->
+      <div class="instructions-card">
+        <h3>
+          <svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          How to use in Adobe Photoshop, Illustrator & Microsoft Word:
+        </h3>
+        <ol>
+          <li>Type or paste your Unicode text into the <strong>Unicode Font</strong> box (or type in Singlish phonetically with Space).</li>
+          <li>Click <strong>"Convert to Legacy Font"</strong> (or click <strong>"Copy Text"</strong>).</li>
+          <li>Open Photoshop, Illustrator, Premiere Pro or Word and press <strong>Ctrl + V</strong> to paste.</li>
+          <li>Select the text and set font to <strong id="instruction-font-name">FM-Abhaya / Bamini</strong>.</li>
+          <li>All ligatures and characters render with 100% accuracy! (If not installed on your PC, click <strong>"Download Font (.ttf)"</strong> to install it).</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+
+  <!-- Singlish Guide Modal -->
+  <div class="modal-overlay" id="singlish-guide-modal" onclick="if(event.target === this) closeSinglishGuideModal()">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>
+          <svg style="width: 22px; height: 22px; fill: #0284c7;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+          GlyphForge Singlish Typing Guide
+        </h2>
+        <button class="modal-close-btn" onclick="closeSinglishGuideModal()" title="Close guide">
+          <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="guide-tip-banner">
+          💡 <strong>How to Type Singlish:</strong> Type phonetic words using English letters. When you hit <strong>Space</strong>, <strong>Enter</strong>, or <strong>punctuation</strong> (like <code>. , ! ?</code>), the word automatically transforms into Sinhala Unicode! Press <strong>Ctrl + Space</strong> to toggle Singlish typing on/off at any time.
+        </div>
+
+        <div class="guide-grid-layout">
+          <!-- Vowels Box -->
+          <div class="guide-section-box">
+            <h3><span>ස්වර සහ පිලි (Vowels)</span></h3>
+            <table class="guide-table">
+              <tr><td><span class="guide-key">a</span></td><td><span class="guide-char">අ</span></td><td class="guide-eg">ka ➔ ක</td></tr>
+              <tr><td><span class="guide-key">aa</span></td><td><span class="guide-char">ආ (ා)</span></td><td class="guide-eg">kaa ➔ කා</td></tr>
+              <tr><td><span class="guide-key">ae / A</span></td><td><span class="guide-char">ඇ (ැ)</span></td><td class="guide-eg">kae ➔ කැ</td></tr>
+              <tr><td><span class="guide-key">aae / Aa</span></td><td><span class="guide-char">ඈ (ෑ)</span></td><td class="guide-eg">kaae ➔ කෑ</td></tr>
+              <tr><td><span class="guide-key">i</span></td><td><span class="guide-char">ඉ (ි)</span></td><td class="guide-eg">ki ➔ කි</td></tr>
+              <tr><td><span class="guide-key">ii / ee</span></td><td><span class="guide-char">ඊ (ී)</span></td><td class="guide-eg">kii ➔ කී</td></tr>
+              <tr><td><span class="guide-key">u</span></td><td><span class="guide-char">උ (ු)</span></td><td class="guide-eg">ku ➔ කු</td></tr>
+              <tr><td><span class="guide-key">uu / oo</span></td><td><span class="guide-char">ඌ (ූ)</span></td><td class="guide-eg">kuu ➔ කූ</td></tr>
+              <tr><td><span class="guide-key">e</span></td><td><span class="guide-char">එ (ෙ)</span></td><td class="guide-eg">ke ➔ කෙ</td></tr>
+              <tr><td><span class="guide-key">ee / ea</span></td><td><span class="guide-char">ඒ (ේ)</span></td><td class="guide-eg">kee ➔ කේ</td></tr>
+              <tr><td><span class="guide-key">ai</span></td><td><span class="guide-char">ඓ (ෛ)</span></td><td class="guide-eg">kai ➔ කෛ</td></tr>
+              <tr><td><span class="guide-key">o</span></td><td><span class="guide-char">ඔ (ො)</span></td><td class="guide-eg">ko ➔ කො</td></tr>
+              <tr><td><span class="guide-key">oo / oe</span></td><td><span class="guide-char">ඕ (ෝ)</span></td><td class="guide-eg">koo ➔ කෝ</td></tr>
+              <tr><td><span class="guide-key">au / ou</span></td><td><span class="guide-char">ඖ (ෞ)</span></td><td class="guide-eg">kau ➔ කෞ</td></tr>
+            </table>
+          </div>
+
+          <!-- Consonants Box -->
+          <div class="guide-section-box">
+            <h3><span>ව්‍යංජන (Consonants)</span></h3>
+            <table class="guide-table">
+              <tr><td><span class="guide-key">k / g</span></td><td><span class="guide-char">ක / ග</span></td><td class="guide-eg">K/kh: ඛ, G/gh: ඝ</td></tr>
+              <tr><td><span class="guide-key">t / T</span></td><td><span class="guide-char">ට / ඨ</span></td><td class="guide-eg">mata ➔ මට</td></tr>
+              <tr><td><span class="guide-key">th / Th</span></td><td><span class="guide-char">ත / ථ</span></td><td class="guide-eg">potha ➔ පොත</td></tr>
+              <tr><td><span class="guide-key">d / D</span></td><td><span class="guide-char">ද / ඩ</span></td><td class="guide-eg">dan ➔ දැන්, wada ➔ වැඩ</td></tr>
+              <tr><td><span class="guide-key">dh / Dh</span></td><td><span class="guide-char">ද / ධ</span></td><td class="guide-eg">dhavasak ➔ දවසක්</td></tr>
+              <tr><td><span class="guide-key">n / N</span></td><td><span class="guide-char">න / ණ</span></td><td class="guide-eg">bana: බන, baNa: බණ</td></tr>
+              <tr><td><span class="guide-key">p / b</span></td><td><span class="guide-char">ප / බ</span></td><td class="guide-eg">ph: ඵ, bh: භ</td></tr>
+              <tr><td><span class="guide-key">m / y</span></td><td><span class="guide-char">ම / ය</span></td><td class="guide-eg">mama ➔ මම</td></tr>
+              <tr><td><span class="guide-key">r / R</span></td><td><span class="guide-char">ර / ර්‍</span></td><td class="guide-eg">Repaya: R (ධර්‍ම)</td></tr>
+              <tr><td><span class="guide-key">l / L</span></td><td><span class="guide-char">ල / ළ</span></td><td class="guide-eg">kola: කොල, koLa: කොළ</td></tr>
+              <tr><td><span class="guide-key">v / w</span></td><td><span class="guide-char">ව</span></td><td class="guide-eg">wewa ➔ වේවා</td></tr>
+              <tr><td><span class="guide-key">s / sh / S</span></td><td><span class="guide-char">ස / ශ / ෂ</span></td><td class="guide-eg">shri ➔ ශ්‍රී</td></tr>
+              <tr><td><span class="guide-key">h / f / j</span></td><td><span class="guide-char">හ / ෆ / ජ</span></td><td class="guide-eg">ch: ච, Ch: ඡ</td></tr>
+            </table>
+          </div>
+
+          <!-- Special Combinations Box -->
+          <div class="guide-section-box">
+            <h3><span>බැඳි අකුරු (Special)</span></h3>
+            <table class="guide-table">
+              <tr><td><span class="guide-key">kra</span></td><td><span class="guide-char">ක්‍ර</span></td><td class="guide-eg">ක්‍රා (kraa), ක්‍රි (kri)</td></tr>
+              <tr><td><span class="guide-key">kya</span></td><td><span class="guide-char">ක්‍ය</span></td><td class="guide-eg">ක්‍යා (kyaa), ක්‍යු (kyu)</td></tr>
+              <tr><td><span class="guide-key">ksha</span></td><td><span class="guide-char">ක්ෂ</span></td><td class="guide-eg">පක්ෂය (pakshaya)</td></tr>
+              <tr><td><span class="guide-key">shri / sri</span></td><td><span class="guide-char">ශ්‍රී</span></td><td class="guide-eg">ශ්‍රී ලංකා (shrii lankaa)</td></tr>
+              <tr><td><span class="guide-key">nnd / nndh</span></td><td><span class="guide-char">ඬ / ඳ</span></td><td class="guide-eg">සඳ (sandha)</td></tr>
+              <tr><td><span class="guide-key">nng / mmb</span></td><td><span class="guide-char">ඟ / ඹ</span></td><td class="guide-eg">අඟහරුවාදා, කොළඹ</td></tr>
+              <tr><td><span class="guide-key">gn / kn</span></td><td><span class="guide-char">ඥ / ඤ</span></td><td class="guide-eg">ඥානය (gnaanaya)</td></tr>
+              <tr><td><span class="guide-key">kru</span></td><td><span class="guide-char">කෘ</span></td><td class="guide-eg">කෘත්‍රිම (kruthrima)</td></tr>
+              <tr><td><span class="guide-key">k (end)</span></td><td><span class="guide-char">ක් (හල්)</span></td><td class="guide-eg">pothak ➔ පොතක්</td></tr>
+            </table>
+          </div>
+
+          <!-- Everyday Samples Box -->
+          <div class="guide-section-box">
+            <h3><span>පොදු වදන් (Everyday Words)</span></h3>
+            <table class="guide-table">
+              <tr><td><span class="guide-key">mama gedara yanawa</span></td><td><span class="guide-char">මම ගෙදර යනවා</span></td></tr>
+              <tr><td><span class="guide-key">oyaata kohomada?</span></td><td><span class="guide-char">ඔයාට කොහොමද?</span></td></tr>
+              <tr><td><span class="guide-key">subha dhavasak wewa!</span></td><td><span class="guide-char">සුභ දවසක් වේවා!</span></td></tr>
+              <tr><td><span class="guide-key">dan mokada karanne?</span></td><td><span class="guide-char">දැන් මොකද කරන්නෙ?</span></td></tr>
+              <tr><td><span class="guide-key">karanna bae</span></td><td><span class="guide-char">කරන්න බෑ</span></td></tr>
+              <tr><td><span class="guide-key">mata liyanna puluwan</span></td><td><span class="guide-char">මට ලියන්න පුළුවන්</span></td></tr>
+              <tr><td><span class="guide-key">bohoma sthuthiyi!</span></td><td><span class="guide-char">බොහොම ස්තූතියි!</span></td></tr>
+              <tr><td><span class="guide-key">aayubowan</span></td><td><span class="guide-char">ආයුබෝවන්</span></td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notice -->
+  <div class="toast-notice" id="toast">
+    <svg style="width: 18px; height: 18px; fill: #22c55e;" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    <span id="toast-message">Copied to clipboard!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="converter.js"></script>
+  <script>
+    // State
+    let currentLanguage = 'sinhala'; // 'sinhala' | 'tamil'
+    let activeTab = 'unicode'; // 'unicode' | 'legacy'
+    let currentViewMode = 'single'; // 'single' | 'dual'
+    let singlishMode = true; // Enabled by default for convenient typing!
+    let legacyDisplayMode = 'visual'; // 'visual' | 'ascii'
+    let dualLegacyDisplayMode = 'visual';
+
+    // DOM Elements
+    const txtUnicode = document.getElementById('textarea-unicode');
+    const txtLegacy = document.getElementById('textarea-legacy');
+    const dualUnicode = document.getElementById('dual-textarea-unicode');
+    const dualLegacy = document.getElementById('dual-textarea-legacy');
+    const liveSinglishBadge = document.getElementById('live-singlish-badge');
+    const dualLiveSinglishBadge = document.getElementById('dual-live-singlish-badge');
+
+    const btnConvert = document.getElementById('btn-convert');
+    const convertBtnText = document.getElementById('convert-btn-text');
+    const btnCopy = document.getElementById('btn-copy');
+    const btnConvertSinglish = document.getElementById('btn-convert-singlish');
+    const statChars = document.getElementById('stat-chars');
+    const statWords = document.getElementById('stat-words');
+
+    const tabBtnUnicode = document.getElementById('tab-btn-unicode');
+    const tabBtnLegacy = document.getElementById('tab-btn-legacy');
+    const tabTitleUnicode = document.getElementById('tab-title-unicode');
+    const tabTitleLegacy = document.getElementById('tab-title-legacy');
+
+    const unicodeFontControls = document.getElementById('unicode-font-controls');
+    const legacyFontControls = document.getElementById('legacy-font-controls');
+    const unicodeFontSelect = document.getElementById('unicode-font-select');
+    const legacyFontSelect = document.getElementById('legacy-font-select');
+    const legacyViewToggleBar = document.getElementById('legacy-view-toggle-bar');
+    const scriptIndicator = document.getElementById('current-script-indicator');
+    const examplesContainer = document.getElementById('examples-pills-container');
+    const instructionFontName = document.getElementById('instruction-font-name');
+    const singlishToggle = document.getElementById('singlish-toggle');
+    const singlishToggleLabel = document.getElementById('singlish-toggle-label');
+    const singlishToggleWrapper = document.getElementById('singlish-toggle-wrapper');
+    const navSinglishText = document.getElementById('nav-singlish-text');
+
+    // Language configuration
+    const SCRIPT_CONFIGS = {
+      sinhala: {
+        name: 'Sinhala Mode',
+        unicodePlaceholder: 'Type Singlish phonetically (e.g. "mama lankavata adharei" + Space) or paste Sinhala Unicode text...',
+        legacyPlaceholder: 'Converted FM Legacy text will appear here...',
+        tabUnicode: 'UNICODE FONT (යුනිකේත)',
+        tabLegacy: 'LEGACY FONT (FM Font)',
+        unicodeFonts: [
+          { value: 'font-unicode-noto', label: 'Noto Sans Sinhala (පෙරනිමි)' },
+          { value: 'font-unicode-abhaya', label: 'Abhaya Libre (යුනිකේත)' },
+          { value: 'system-ui', label: 'System Default' }
+        ],
+        legacyFonts: [
+          { value: 'font-fm-abhaya', label: 'FM Abhaya (පෙරනිමි)', fontFile: 'FM_AB__.TTF', name: 'FM-Abhaya' },
+          { value: 'font-fm-abhaya-bold', label: 'FM Abhaya Bold', fontFile: 'FM_ABHAY.TTF', name: 'FM-Abhaya-Bold' },
+          { value: 'font-fm-derana', label: 'FM Derana', fontFile: 'FM_DERAN.TTF', name: 'FM-Derana' },
+          { value: 'font-fm-malithi', label: 'FM Malithi', fontFile: 'FM_MALIT.TTF', name: 'FM-Malithi' },
+          { value: 'font-fm-bindumathi', label: 'FM Bindumathi', fontFile: 'FM_BINDU.TTF', name: 'FM-Bindumathi' }
+        ],
+        examples: [
+          { label: 'ව්‍යාපාර මුදල් දෙපාර්තමේන්තුව', text: 'ව්‍යාපාර මුදල් දෙපාර්තමේන්තුව' },
+          { label: 'Singlish: vyaapaara mudhal...', text: 'vyaapaara mudhal dhepaarthamenthuva' },
+          { label: 'Singlish: mama lankaavata...', text: 'mama lankaavata aadharei' },
+          { label: 'ශ්‍රී ලංකා ප්‍රජාතාන්ත්‍රික සමාජවාදී ජනරජය', text: 'ශ්‍රී ලංකා ප්‍රජාතාන්ත්‍රික සමාජවාදී ජනරජය' },
+          { label: 'Singlish: subha dhavasak...', text: 'subha dhavasak oyaata kohomadha?' }
+        ],
+        defaultText: 'ව්‍යාපාර මුදල් දෙපාර්තමේන්තුව',
+        instructionFont: 'FM-Abhaya / FM-Derana'
+      },
+      tamil: {
+        name: 'Tamil Mode',
+        unicodePlaceholder: 'இங்கே உங்கள் தமிழ் Unicode உரையை Paste செய்யவும் அல்லது Type செய்யவும்... (e.g. நாணயத் திணைக்களம்)',
+        legacyPlaceholder: 'Converted Bamini Legacy text will appear here...',
+        tabUnicode: 'UNICODE FONT (தமிழ்)',
+        tabLegacy: 'LEGACY FONT (Bamini / பாமினி)',
+        unicodeFonts: [
+          { value: 'font-unicode-tamil', label: 'Noto Sans Tamil (Default)' },
+          { value: 'system-ui', label: 'System Tamil (Latha/Vijaya)' }
+        ],
+        legacyFonts: [
+          { value: 'font-bamini', label: 'Bamini (பாமினி - Default)', fontFile: 'Bamini.ttf', name: 'Bamini' }
+        ],
+        examples: [
+          { label: 'நாணயத் திணைக்களம்', text: 'நாணயத் திணைக்களம்' },
+          { label: 'வணக்கம்! நல்வரவு', text: 'வணக்கம்! நல்வரவு' },
+          { label: 'இலங்கை மத்திய வங்கி', text: 'இலங்கை மத்திய வங்கி' },
+          { label: 'செலாவணித் திணைக்களம்', text: 'செலாவணித் திணைக்களம்' },
+          { label: 'பல்கலைக்கழகம்', text: 'பல்கலைக்கழகம்' }
+        ],
+        defaultText: 'நாணயத் திணைக்களம்',
+        instructionFont: 'Bamini (பாமினி)'
+      }
+    };
+
+    // Set active language
+    function setLanguage(lang, preserveText = false) {
+      currentLanguage = lang;
+      const config = SCRIPT_CONFIGS[lang];
+
+      document.getElementById('pill-sinhala').classList.toggle('active', lang === 'sinhala');
+      document.getElementById('pill-tamil').classList.toggle('active', lang === 'tamil');
+      scriptIndicator.innerText = config.name;
+      instructionFontName.innerText = config.instructionFont;
+
+      tabTitleUnicode.innerText = config.tabUnicode;
+      tabTitleLegacy.innerText = config.tabLegacy;
+      document.getElementById('dual-header-unicode').innerText = config.tabUnicode;
+      document.getElementById('dual-header-legacy').innerText = config.tabLegacy;
+
+      txtUnicode.placeholder = config.unicodePlaceholder;
+      dualUnicode.placeholder = config.unicodePlaceholder;
+      txtLegacy.placeholder = config.legacyPlaceholder;
+      dualLegacy.placeholder = config.legacyPlaceholder;
+
+      // Show/hide Singlish controls (only for Sinhala)
+      if (lang === 'sinhala') {
+        singlishToggleWrapper.style.display = 'flex';
+        btnConvertSinglish.style.display = 'inline-flex';
+        const btnGuide = document.getElementById('btn-singlish-guide');
+        if (btnGuide) btnGuide.style.display = 'inline-flex';
+      } else {
+        singlishToggleWrapper.style.display = 'none';
+        btnConvertSinglish.style.display = 'none';
+        const btnGuide = document.getElementById('btn-singlish-guide');
+        if (btnGuide) btnGuide.style.display = 'none';
+        if (liveSinglishBadge) liveSinglishBadge.style.display = 'none';
+        if (dualLiveSinglishBadge) dualLiveSinglishBadge.style.display = 'none';
+      }
+
+      // Populate Unicode fonts dropdown
+      unicodeFontSelect.innerHTML = '';
+      config.unicodeFonts.forEach(f => {
+        const opt = document.createElement('option');
+        opt.value = f.value;
+        opt.textContent = f.label;
+        unicodeFontSelect.appendChild(opt);
+      });
+
+      // Populate Legacy fonts dropdown
+      legacyFontSelect.innerHTML = '';
+      config.legacyFonts.forEach(f => {
+        const opt = document.createElement('option');
+        opt.value = f.value;
+        opt.textContent = f.label;
+        legacyFontSelect.appendChild(opt);
+      });
+
+      // Populate Examples
+      examplesContainer.innerHTML = '';
+      config.examples.forEach(ex => {
+        const span = document.createElement('span');
+        span.className = 'example-pill';
+        span.textContent = ex.label;
+        span.onclick = () => loadExampleText(ex.text);
+        examplesContainer.appendChild(span);
+      });
+
+      // Update font classes
+      if (lang === 'tamil') {
+        txtUnicode.className = 'main-textarea font-unicode-tamil';
+        dualUnicode.className = 'font-unicode-tamil';
+        applyLegacyFontClass(txtLegacy, 'font-bamini');
+        applyLegacyFontClass(dualLegacy, 'font-bamini');
+      } else {
+        txtUnicode.className = 'main-textarea font-unicode-noto';
+        dualUnicode.className = 'font-unicode-noto';
+        applyLegacyFontClass(txtLegacy, 'font-fm-abhaya');
+        applyLegacyFontClass(dualLegacy, 'font-fm-abhaya');
+      }
+
+      if (!preserveText) {
+        txtUnicode.value = config.defaultText;
+        dualUnicode.value = config.defaultText;
+        txtLegacy.value = convertToLegacy(config.defaultText);
+        dualLegacy.value = txtLegacy.value;
+        updateStats(txtUnicode.value);
+      } else {
+        txtLegacy.value = convertToLegacy(txtUnicode.value);
+        dualLegacy.value = txtLegacy.value;
+      }
+    }
+
+    // Toggle Singlish Mode
+    function toggleSinglishMode() {
+      singlishMode = !singlishMode;
+      singlishToggle.checked = singlishMode;
+      singlishToggleLabel.innerText = singlishMode ? 'ON' : 'OFF';
+      navSinglishText.innerText = singlishMode ? 'Singlish: On' : 'Singlish: Off';
+
+      if (!singlishMode) {
+        if (liveSinglishBadge) liveSinglishBadge.style.display = 'none';
+        if (dualLiveSinglishBadge) dualLiveSinglishBadge.style.display = 'none';
+      }
+      showToast(singlishMode ? 'Singlish Phonetic typing ON! (Press Space to convert words)' : 'Singlish Phonetic typing turned OFF.');
+    }
+
+    // Core conversion dispatch
+    function convertToLegacy(text) {
+      if (!text) return '';
+      if (currentLanguage === 'tamil') {
+        return unicodeToBamini(text);
+      } else {
+        const sinhalaText = (singlishMode && /[a-zA-Z]/.test(text)) ? convertSinglish(text) : text;
+        return unicodeToFM(sinhalaText);
+      }
+    }
+
+    function convertToUnicode(text) {
+      if (!text) return '';
+      if (currentLanguage === 'tamil') {
+        return baminiToUnicode(text);
+      } else {
+        return fmToUnicode(text);
+      }
+    }
+
+    // Convert full text from Singlish to Sinhala
+    function convertActiveTextFromSinglish() {
+      const target = (currentViewMode === 'dual') ? dualUnicode : txtUnicode;
+      if (!target.value.trim()) {
+        showToast('Please type some Singlish text first!');
+        return;
+      }
+      const converted = convertSinglish(target.value);
+      target.value = converted;
+      if (currentViewMode === 'dual') {
+        onDualUnicodeInput();
+      } else {
+        onUnicodeInput();
+      }
+      showToast('Converted Singlish to Sinhala Unicode!');
+    }
+
+    // Natural Word-by-Word Singlish KeyDown Interceptor
+    function handleSinglishKeyDown(e, textarea, previewEl) {
+      if (currentLanguage !== 'sinhala') return;
+
+      // Ctrl + Space shortcut to toggle Singlish typing
+      if (e.ctrlKey && e.code === 'Space') {
+        e.preventDefault();
+        toggleSinglishMode();
+        return;
+      }
+
+      if (!singlishMode) return;
+
+      const key = e.key;
+      // Trigger conversion on word boundary keys: Space, Enter, or punctuation
+      const isWordDelimiter = key === ' ' || key === 'Enter' || /^[.,!?:;()[\]{}"'\\/-]$/.test(key);
+
+      if (isWordDelimiter) {
+        const start = textarea.selectionStart;
+        const textBefore = textarea.value.substring(0, start);
+        // Match the last English word right before caret
+        const match = textBefore.match(/([a-zA-Z]+)$/);
+        if (match) {
+          const rawWord = match[1];
+          const converted = convertSinglishWord(rawWord);
+          if (converted && converted !== rawWord) {
+            e.preventDefault();
+            const wordStart = start - rawWord.length;
+            const textAfter = textarea.value.substring(textarea.selectionEnd);
+            const delimiterChar = key === 'Enter' ? '\n' : key;
+
+            textarea.value = textarea.value.substring(0, wordStart) + converted + delimiterChar + textAfter;
+            const newCaret = wordStart + converted.length + delimiterChar.length;
+            textarea.setSelectionRange(newCaret, newCaret);
+
+            // Trigger live conversion to legacy FM
+            textarea.dispatchEvent(new Event('input', { bubbles: true }));
+            if (previewEl) previewEl.style.display = 'none';
+            return;
+          }
+        }
+      }
+    }
+
+    // Live Singlish Preview Badge
+    function updateSinglishPreview(textarea, previewEl) {
+      if (!singlishMode || currentLanguage !== 'sinhala' || !previewEl) {
+        if (previewEl) previewEl.style.display = 'none';
+        return;
+      }
+      const start = textarea.selectionStart;
+      const textBefore = textarea.value.substring(0, start);
+      const match = textBefore.match(/([a-zA-Z]+)$/);
+      if (match) {
+        const rawWord = match[1];
+        const converted = convertSinglishWord(rawWord);
+        previewEl.innerHTML = `<span>Singlish:</span> <strong>${rawWord}</strong> ➔ <strong>${converted}</strong> <span style="opacity:0.75; font-size:11px;">[Press Space]</span>`;
+        previewEl.style.display = 'inline-flex';
+      } else {
+        previewEl.style.display = 'none';
+      }
+    }
+
+    // Auto-convert pasted Singlish text to Sinhala Unicode
+    function handleDirectPaste(e, textarea) {
+      if (currentLanguage !== 'sinhala' || !singlishMode) return;
+      const clipboardData = (e.clipboardData || window.clipboardData);
+      if (!clipboardData) return;
+      const pastedData = clipboardData.getData('text');
+      if (/[a-zA-Z]{2,}/.test(pastedData) && !/[\u0D80-\u0DFF]/.test(pastedData)) {
+        e.preventDefault();
+        const converted = convertSinglish(pastedData);
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const before = textarea.value.substring(0, start);
+        const after = textarea.value.substring(end);
+        textarea.value = before + converted + after;
+        const newPos = start + converted.length;
+        textarea.setSelectionRange(newPos, newPos);
+        textarea.dispatchEvent(new Event('input', { bubbles: true }));
+        showToast('Auto-converted pasted Singlish to Sinhala Unicode!');
+      }
+    }
+
+    // Modal Guide Control
+    function openSinglishGuideModal() {
+      const modal = document.getElementById('singlish-guide-modal');
+      if (modal) modal.classList.add('active');
+    }
+
+    function closeSinglishGuideModal() {
+      const modal = document.getElementById('singlish-guide-modal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    // Key events on textareas
+    function onUnicodeKeyDown(e) {
+      handleSinglishKeyDown(e, txtUnicode, liveSinglishBadge);
+    }
+
+    function onUnicodeKeyUp(e) {
+      updateSinglishPreview(txtUnicode, liveSinglishBadge);
+    }
+
+    function onDualUnicodeKeyDown(e) {
+      handleSinglishKeyDown(e, dualUnicode, dualLiveSinglishBadge);
+    }
+
+    function onDualUnicodeKeyUp(e) {
+      updateSinglishPreview(dualUnicode, dualLiveSinglishBadge);
+    }
+
+    // Live typing input with auto-detection
+    function onUnicodeInput() {
+      autoDetectAndSwitchScript(txtUnicode.value);
+      updateStats(txtUnicode.value);
+    }
+
+    function onLegacyInput() {
+      updateStats(txtLegacy.value);
+    }
+
+    function onDualUnicodeInput() {
+      autoDetectAndSwitchScript(dualUnicode.value);
+      dualLegacy.value = convertToLegacy(dualUnicode.value);
+      txtUnicode.value = dualUnicode.value;
+      txtLegacy.value = dualLegacy.value;
+      updateStats(dualUnicode.value);
+    }
+
+    function onDualLegacyInput() {
+      dualUnicode.value = convertToUnicode(dualLegacy.value);
+      txtUnicode.value = dualUnicode.value;
+      txtLegacy.value = dualLegacy.value;
+      updateStats(dualLegacy.value);
+    }
+
+    // Auto-detect language script
+    function autoDetectAndSwitchScript(text) {
+      const script = detectScript(text);
+      if (script === 'tamil' && currentLanguage !== 'tamil') {
+        setLanguage('tamil', true);
+        showToast('Auto-detected Tamil script! Switched to Bamini Font.');
+      } else if (script === 'sinhala' && currentLanguage !== 'sinhala') {
+        setLanguage('sinhala', true);
+        showToast('Auto-detected Sinhala script! Switched to FM Fonts.');
+      }
+    }
+
+    // Switch between Unicode and Legacy Tabs (Single View)
+    function switchSingleTab(tab) {
+      activeTab = tab;
+
+      if (tab === 'unicode') {
+        tabBtnUnicode.classList.add('active');
+        tabBtnLegacy.classList.remove('active');
+
+        txtUnicode.style.display = 'block';
+        txtLegacy.style.display = 'none';
+
+        unicodeFontControls.style.display = 'block';
+        legacyFontControls.style.display = 'none';
+        legacyViewToggleBar.style.display = 'none';
+
+        convertBtnText.innerText = 'Convert to Legacy Font';
+        updateStats(txtUnicode.value);
+        txtUnicode.focus();
+      } else {
+        tabBtnUnicode.classList.remove('active');
+        tabBtnLegacy.classList.add('active');
+
+        // Automatically convert on switching to Legacy tab
+        txtLegacy.value = convertToLegacy(txtUnicode.value);
+
+        txtUnicode.style.display = 'none';
+        txtLegacy.style.display = 'block';
+
+        unicodeFontControls.style.display = 'none';
+        legacyFontControls.style.display = 'block';
+        legacyViewToggleBar.style.display = 'flex';
+        if (liveSinglishBadge) liveSinglishBadge.style.display = 'none';
+
+        convertBtnText.innerText = 'Convert to Unicode Font';
+        applyLegacyFontClass(txtLegacy, legacyFontSelect.value);
+        updateStats(txtLegacy.value);
+        txtLegacy.focus();
+      }
+    }
+
+    // View Mode: Single tabbed vs Dual split
+    function setViewMode(mode) {
+      currentViewMode = mode;
+      const singleContainer = document.getElementById('single-view-container');
+      const dualContainer = document.getElementById('dual-view-container');
+      const singleTabsBar = document.getElementById('single-tabs-bar');
+      const navSingle = document.getElementById('nav-single');
+      const navDual = document.getElementById('nav-dual');
+
+      if (mode === 'dual') {
+        singleContainer.style.display = 'none';
+        dualContainer.style.display = 'grid';
+        singleTabsBar.style.display = 'none';
+        navSingle.classList.remove('active');
+        navDual.classList.add('active');
+
+        dualUnicode.value = txtUnicode.value;
+        dualLegacy.value = convertToLegacy(dualUnicode.value);
+        applyLegacyFontClass(dualLegacy, legacyFontSelect.value);
+        dualUnicode.focus();
+      } else {
+        singleContainer.style.display = 'flex';
+        dualContainer.style.display = 'none';
+        singleTabsBar.style.display = 'flex';
+        navSingle.classList.add('active');
+        navDual.classList.remove('active');
+
+        txtUnicode.value = dualUnicode.value;
+        switchSingleTab(activeTab);
+      }
+    }
+
+    // Convert Action Button
+    function handleConvertAction() {
+      if (currentViewMode === 'dual') {
+        dualLegacy.value = convertToLegacy(dualUnicode.value);
+        showToast(`Converted ${currentLanguage === 'tamil' ? 'Tamil' : 'Sinhala'} to Legacy Font!`);
+        return;
+      }
+
+      if (activeTab === 'unicode') {
+        switchSingleTab('legacy');
+        showToast(`Converted to Legacy ${currentLanguage === 'tamil' ? 'Bamini' : 'FM'} Font!`);
+      } else {
+        txtUnicode.value = convertToUnicode(txtLegacy.value);
+        switchSingleTab('unicode');
+        showToast('Converted Legacy Font to Unicode!');
+      }
+    }
+
+    // Copy Action Button
+    function handleCopyAction() {
+      let textToCopy = '';
+
+      if (currentViewMode === 'dual') {
+        textToCopy = dualLegacy.value || dualUnicode.value;
+      } else {
+        if (activeTab === 'legacy') {
+          textToCopy = txtLegacy.value;
+        } else {
+          // If in unicode tab, copy the converted legacy text directly so it is ready for Photoshop!
+          textToCopy = convertToLegacy(txtUnicode.value);
+        }
+      }
+
+      if (!textToCopy) {
+        showToast('Nothing to copy. Please enter text first!');
+        return;
+      }
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        showToast(`Copied ${currentLanguage === 'tamil' ? 'Bamini' : 'FM'} text! Ready for Photoshop / Word.`);
+        btnCopy.classList.add('btn-success');
+        setTimeout(() => btnCopy.classList.remove('btn-success'), 1200);
+      }).catch(() => {
+        const temp = document.createElement('textarea');
+        temp.value = textToCopy;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        showToast('Copied text to clipboard!');
+      });
+    }
+
+    function copyUnicodeText() {
+      const text = dualUnicode.value;
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => showToast('Copied Unicode text!'));
+    }
+
+    function copyLegacyText() {
+      const text = dualLegacy.value;
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => showToast(`Copied ${currentLanguage === 'tamil' ? 'Bamini' : 'FM'} text!`));
+    }
+
+    // Paste Action Button
+    async function handlePasteAction() {
+      try {
+        let text = await navigator.clipboard.readText();
+        let wasConverted = false;
+        if (currentLanguage === 'sinhala' && singlishMode && /[a-zA-Z]{2,}/.test(text) && !/[\u0D80-\u0DFF]/.test(text)) {
+          text = convertSinglish(text);
+          wasConverted = true;
+        }
+
+        if (currentViewMode === 'dual') {
+          dualUnicode.value += text;
+          onDualUnicodeInput();
+        } else {
+          if (activeTab === 'unicode') {
+            txtUnicode.value += text;
+            onUnicodeInput();
+          } else {
+            txtLegacy.value += text;
+            onLegacyInput();
+          }
+        }
+        showToast(wasConverted ? 'Pasted & converted Singlish to Sinhala Unicode!' : 'Pasted from clipboard!');
+      } catch (err) {
+        alert('Please press Ctrl + V to paste directly into the box.');
+      }
+    }
+
+    // Clear Action Button
+    function handleClearAction() {
+      txtUnicode.value = '';
+      txtLegacy.value = '';
+      dualUnicode.value = '';
+      dualLegacy.value = '';
+      if (liveSinglishBadge) liveSinglishBadge.style.display = 'none';
+      if (dualLiveSinglishBadge) dualLiveSinglishBadge.style.display = 'none';
+      updateStats('');
+      showToast('Cleared text area.');
+    }
+
+    // Font selection handlers
+    function onUnicodeFontChange(cls) {
+      txtUnicode.className = 'main-textarea ' + cls;
+      dualUnicode.className = cls;
+    }
+
+    function onLegacyFontChange(cls) {
+      applyLegacyFontClass(txtLegacy, cls);
+      applyLegacyFontClass(dualLegacy, cls);
+    }
+
+    function applyLegacyFontClass(el, cls) {
+      if (legacyDisplayMode === 'ascii') {
+        el.className = 'main-textarea';
+        el.style.fontFamily = 'monospace';
+      } else {
+        el.className = 'main-textarea ' + cls;
+        el.style.fontFamily = '';
+      }
+    }
+
+    // Toggle Visual Sinhala/Tamil Font Preview vs Raw ASCII
+    function setLegacyDisplayMode(mode) {
+      legacyDisplayMode = mode;
+      const btnVisual = document.getElementById('btn-view-visual');
+      const btnAscii = document.getElementById('btn-view-ascii');
+
+      if (mode === 'ascii') {
+        btnVisual.classList.remove('active');
+        btnAscii.classList.add('active');
+        txtLegacy.style.fontFamily = 'monospace';
+      } else {
+        btnVisual.classList.add('active');
+        btnAscii.classList.remove('active');
+        txtLegacy.style.fontFamily = '';
+      }
+    }
+
+    function setDualLegacyDisplayMode(mode) {
+      dualLegacyDisplayMode = mode;
+      const btnVisual = document.getElementById('dual-btn-view-visual');
+      const btnAscii = document.getElementById('dual-btn-view-ascii');
+
+      if (mode === 'ascii') {
+        btnVisual.classList.remove('active');
+        btnAscii.classList.add('active');
+        dualLegacy.style.fontFamily = 'monospace';
+      } else {
+        btnVisual.classList.add('active');
+        btnAscii.classList.remove('active');
+        dualLegacy.style.fontFamily = '';
+      }
+    }
+
+    // Load sample text
+    function loadExampleText(sample) {
+      if (currentViewMode === 'dual') {
+        dualUnicode.value = sample;
+        onDualUnicodeInput();
+      } else {
+        switchSingleTab('unicode');
+        txtUnicode.value = sample;
+        onUnicodeInput();
+      }
+      showToast('Loaded: ' + sample);
+    }
+
+    // Download Text file
+    function downloadTextAsFile() {
+      const text = (activeTab === 'legacy' || currentViewMode === 'dual') ? (dualLegacy.value || txtLegacy.value) : txtUnicode.value;
+      if (!text) {
+        showToast('Nothing to download.');
+        return;
+      }
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `glyphforge_${currentLanguage}_converted.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Downloaded text file.');
+    }
+
+    // Download Active Font (.ttf)
+    function downloadActiveFontFile() {
+      let filename = 'FM_AB__.TTF';
+      let fontName = 'FM-Abhaya';
+
+      if (currentLanguage === 'tamil') {
+        filename = 'Bamini.ttf';
+        fontName = 'Bamini';
+      } else {
+        const sel = legacyFontSelect.value;
+        if (sel === 'font-fm-abhaya-bold') { filename = 'FM_ABHAY.TTF'; fontName = 'FM-Abhaya-Bold'; }
+        else if (sel === 'font-fm-derana') { filename = 'FM_DERAN.TTF'; fontName = 'FM-Derana'; }
+        else if (sel === 'font-fm-malithi') { filename = 'FM_MALIT.TTF'; fontName = 'FM-Malithi'; }
+        else if (sel === 'font-fm-bindumathi') { filename = 'FM_BINDU.TTF'; fontName = 'FM-Bindumathi'; }
+      }
+
+      const a = document.createElement('a');
+      a.href = 'fonts/' + filename;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast(`Downloaded ${fontName} (.ttf)! Right-click & install on Windows.`);
+    }
+
+    // Stats counter
+    function updateStats(str) {
+      const chars = str.length;
+      const words = str.trim() ? str.trim().split(/\s+/).length : 0;
+      statChars.innerText = `Characters: ${chars}`;
+      statWords.innerText = `Words: ${words}`;
+    }
+
+    // Toast Notification
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // Initialize with Sinhala
+    window.addEventListener('DOMContentLoaded', () => {
+      setLanguage('sinhala');
+    });
+  </script>
+</body>
+</html>
